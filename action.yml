@@ -1,5 +1,8 @@
 name: "env-from-aws-ssm-list"
 description: "Pass SSM Parameter Store values from a file to dotenv file"
+branding:
+  icon: "archive"
+  color: "blue"
 author: "enuelx"
 inputs:
   inputFilename:
