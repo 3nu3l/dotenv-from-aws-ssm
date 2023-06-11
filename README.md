@@ -10,10 +10,26 @@ Create a dotenv from another dotenv file with a list of paths from aws parameter
 
 ### `inputFilename`
 
-Filename received as parameter or '`.env.map'` by default
+Filename received as parameter or '`.env.map'` by default, in the root directory
 
 ### `outputFilename`
-Filename received as parameter or '`.env'` by default
+Filename received as parameter or '`.env'` by default, in the root directory
+
+## Example source file
+
+```sh
+VAR1=/qa/core/var1
+VAR2=/qa/core/var2
+VAR3=/qa/core/var3
+```
+
+## Example output file
+
+```sh
+VAR1=value1
+VAR2=value2
+VAR3=value3
+```
 
 ## Example usage
 
@@ -32,5 +48,6 @@ jobs:
       
       - uses: enuelx/env-from-an-aws-ssm-list@v1.0.1
         with:
-          inputFilename: '.env.local' # Optional (default: '.env.map')
+          inputFilename: '.env.qa' # Optional (default: '.env.map')
           outputFilename: '.env.development' # Optional (default : '.env')
+```
