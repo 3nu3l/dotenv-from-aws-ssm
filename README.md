@@ -46,7 +46,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - uses: enuelx/env-from-an-aws-ssm-list@v1.0.1
+      - uses: enuelx/env-from-an-aws-ssm-list@v1
         with:
           inputFilename: '.env.qa' # Optional (default: '.env.map')
           outputFilename: '.env.development' # Optional (default : '.env')
