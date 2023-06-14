@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import AWS from 'aws-sdk'
+import {SSMClient, GetParameterCommand} from '@aws-sdk/client-ssm'
 import fs from 'fs'
 import {promisify} from 'util'
 
@@ -14,13 +14,14 @@ interface SSMResponse {
 
 async function getParameter(name: string): Promise<string> {
   const region = process.env.AWS_DEFAULT_REGION || 'sa-east-1'
-  const ssm = new AWS.SSM({region})
-  const response: SSMResponse = await ssm
-    .getParameter({
-      Name: name,
-      WithDecryption: true
-    })
-    .promise()
+  const ssm = new SSMClient({region})
+  const input = {
+    Name: name,
+    WithDecryption: true
+  }
+
+  const command = new GetParameterCommand(input)
+  const response = await ssm.send(command)
 
   if (response.Parameter && response.Parameter.Value) {
     return response.Parameter.Value

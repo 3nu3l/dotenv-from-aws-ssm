@@ -36,7 +36,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
-const aws_sdk_1 = __importDefault(require("aws-sdk"));
+const client_ssm_1 = require("@aws-sdk/client-ssm");
 const fs_1 = __importDefault(require("fs"));
 const util_1 = require("util");
 const readFileAsync = (0, util_1.promisify)(fs_1.default.readFile);
@@ -44,13 +44,13 @@ const writeFileAsync = (0, util_1.promisify)(fs_1.default.writeFile);
 function getParameter(name) {
     return __awaiter(this, void 0, void 0, function* () {
         const region = process.env.AWS_DEFAULT_REGION || 'sa-east-1';
-        const ssm = new aws_sdk_1.default.SSM({ region });
-        const response = yield ssm
-            .getParameter({
+        const ssm = new client_ssm_1.SSMClient({ region });
+        const input = {
             Name: name,
             WithDecryption: true
-        })
-            .promise();
+        };
+        const command = new client_ssm_1.GetParameterCommand(input);
+        const response = yield ssm.send(command);
         if (response.Parameter && response.Parameter.Value) {
             return response.Parameter.Value;
         }
