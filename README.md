@@ -43,6 +43,13 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
+
+      # reference documentation: https://github.com/aws-actions/configure-aws-credentials
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::123456789100:role/my-github-actions-role
+          aws-region: us-east-2
       
       - uses: enuelx/env-from-an-aws-ssm-list@v1
         with:
