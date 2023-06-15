@@ -13,7 +13,7 @@ interface SSMResponse {
 }
 
 async function getParameter(name: string): Promise<string> {
-  const region = process.env.AWS_DEFAULT_REGION || 'sa-east-1'
+  const region = process.env.AWS_DEFAULT_REGION || 'us-east-1'
   const ssm = new SSMClient({region})
   const input = {
     Name: name,
