@@ -1,6 +1,5 @@
-<!-- <p align="center">
-  <a href="https://github.com/actions/typescript-action/actions"><img alt="typescript-action status" src="https://github.com/actions/typescript-action/workflows/build-test/badge.svg"></a>
-</p> -->
+![CodeQL](https://github.com/github/docs/actions/workflows/codeql-analysis.yml/badge.svg)
+![Tests](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
 
 # Create a dotenv from aws parameter store list
 
