@@ -1,4 +1,4 @@
-![Tests](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
+![jest](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
 
 # Create a dotenv from aws parameter store list
 
