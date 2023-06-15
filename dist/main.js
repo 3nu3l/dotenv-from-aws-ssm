@@ -43,7 +43,7 @@ const readFileAsync = (0, util_1.promisify)(fs_1.default.readFile);
 const writeFileAsync = (0, util_1.promisify)(fs_1.default.writeFile);
 function getParameter(name) {
     return __awaiter(this, void 0, void 0, function* () {
-        const region = process.env.AWS_DEFAULT_REGION || 'sa-east-1';
+        const region = process.env.AWS_DEFAULT_REGION || 'us-east-1';
         const ssm = new client_ssm_1.SSMClient({ region });
         const input = {
             Name: name,
