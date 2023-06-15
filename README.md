@@ -1,10 +1,18 @@
-![jest](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
+[![Release](https://img.shields.io/github/v/release/enuelx/action-env-from-an-aws-ssm-list?label=Release&logo=github)](https://github.com/enuelx/action-env-from-an-aws-ssm-list/releases/latest) 
+[![Tests](https://img.shields.io/github/actions/workflow/status/enuelx/action-env-from-an-aws-ssm-list/test.yml?label=Tests&logo=github)](https://github.com/enuelx/action-env-from-an-aws-ssm-list/actions/workflows/test.yml)
+[![CodeQL](https://img.shields.io/github/actions/workflow/status/enuelx/action-env-from-an-aws-ssm-list/codeql-analysis.yml?label=CodeQL&logo=github)](https://github.com/enuelx/action-env-from-an-aws-ssm-list/actions/workflows/codeql-analysis.yml)
 
-# Create a dotenv from aws parameter store list
+
+# Create a dotenv from aws parameter store list :rocket:
 
 Create a dotenv from another dotenv file with a list of paths from aws parameter store
 
-## Inputs
+## Parameters
+
+| Input | Required? | Default | Description |
+| ----- | --------- | ------- | ----------- |
+| `inputFilename` | `no` | `.env.map` | Filename received as parameter with ssm paths |
+| `outputFilename` | `no` | `.env` | Filename received as parameter for output file |
 
 ### `inputFilename`
 
