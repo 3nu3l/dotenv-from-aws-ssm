@@ -86,8 +86,7 @@ function writeEnv(envMap, filename) {
             if (line && !line.startsWith('#')) {
                 const [key, awsPath] = line.split('=');
                 const value = yield getParameter(awsPath.trim());
-                const filteredKey = key.replace(/[^A-Z]/g, ''); // Filter out non-uppercase letters
-                fileData += `${filteredKey}=${value}\n`;
+                fileData += `${key}=${value}\n`;
             }
         }
         yield writeFileAsync(filename, fileData);

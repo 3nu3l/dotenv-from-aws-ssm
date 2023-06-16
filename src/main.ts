@@ -47,8 +47,7 @@ async function writeEnv(envMap: string[], filename: string): Promise<void> {
     if (line && !line.startsWith('#')) {
       const [key, awsPath] = line.split('=')
       const value = await getParameter(awsPath.trim())
-      const filteredKey = key.replace(/[^A-Z]/g, '') // Filter out non-uppercase letters
-      fileData += `${filteredKey}=${value}\n`
+      fileData += `${key}=${value}\n`
     }
   }
   await writeFileAsync(filename, fileData)
