@@ -78,8 +78,18 @@ function writeEnv(envMap, filename) {
             line = line.trim();
             if (line && !line.startsWith('#')) {
                 const [key, awsPath] = line.split('=');
-                const value = yield getParameter(awsPath.trim());
-                fileData += `${key}=${value}\n`;
+                try {
+                    const value = yield getParameter(awsPath.trim());
+                    fileData += `${key}=${value}\n`;
+                }
+                catch (error) {
+                    if (error instanceof Error) {
+                        console.error(`Error al obtener el parámetro para el path ${awsPath}: ${error.message}`);
+                    }
+                    else {
+                        console.error(`Error al obtener el parámetro para el path ${awsPath}`);
+                    }
+                }
             }
         }
         yield writeFileAsync(filename, fileData);
