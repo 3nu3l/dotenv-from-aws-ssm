@@ -1,7 +1,7 @@
 import * as core from '@actions/core'
-import { SSMClient, GetParameterCommand } from '@aws-sdk/client-ssm'
+import {SSMClient, GetParameterCommand} from '@aws-sdk/client-ssm'
 import fs from 'fs'
-import { promisify } from 'util'
+import {promisify} from 'util'
 
 const readFileAsync = promisify(fs.readFile)
 const writeFileAsync = promisify(fs.writeFile)
@@ -14,7 +14,7 @@ interface SSMResponse {
 
 async function getParameter(name: string): Promise<string> {
   const region = process.env.AWS_DEFAULT_REGION || 'us-east-1'
-  const ssm = new SSMClient({ region })
+  const ssm = new SSMClient({region})
   const input = {
     Name: name,
     WithDecryption: true
@@ -41,24 +41,26 @@ async function parseEnvMap(filename: string): Promise<string[] | null> {
 }
 
 async function writeEnv(envMap: string[], filename: string): Promise<void> {
-  let fileData = '';
+  let fileData = ''
   for (let line of envMap) {
-    line = line.trim();
+    line = line.trim()
     if (line && !line.startsWith('#')) {
-      const [key, awsPath] = line.split('=');
+      const [key, awsPath] = line.split('=')
       try {
-        const value = await getParameter(awsPath.trim());
-        fileData += `${key}=${value}\n`;
+        const value = await getParameter(awsPath.trim())
+        fileData += `${key}=${value}\n`
       } catch (error) {
         if (error instanceof Error) {
-          console.error(`Error al obtener el parámetro para el path ${awsPath}: ${error.message}`);
+          console.error(
+            `Error al obtener el parámetro para el path ${awsPath}: ${error.message}`
+          )
         } else {
-          console.error(`Error al obtener el parámetro para el path ${awsPath}`);
+          console.error(`Error al obtener el parámetro para el path ${awsPath}`)
         }
       }
     }
   }
-  await writeFileAsync(filename, fileData);
+  await writeFileAsync(filename, fileData)
 }
 
 async function main(): Promise<void> {
