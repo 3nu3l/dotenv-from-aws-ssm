@@ -12,7 +12,7 @@ jobs:
     environment:
       name: main
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: |
           npm install
       - run: |
@@ -22,7 +22,7 @@ jobs:
     environment:
       name: main
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./
         with:
           milliseconds: 1000
