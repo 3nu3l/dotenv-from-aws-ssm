@@ -1,6 +1,6 @@
-[![Release](https://img.shields.io/github/v/release/enuelx/action-env-from-an-aws-ssm-list?label=Release&logo=github)](https://github.com/enuelx/action-env-from-an-aws-ssm-list/releases/latest) 
-[![Tests](https://img.shields.io/github/actions/workflow/status/enuelx/action-env-from-an-aws-ssm-list/test.yml?label=Tests&logo=github)](https://github.com/enuelx/action-env-from-an-aws-ssm-list/actions/workflows/test.yml)
-[![CodeQL](https://img.shields.io/github/actions/workflow/status/enuelx/action-env-from-an-aws-ssm-list/codeql-analysis.yml?label=CodeQL&logo=github)](https://github.com/enuelx/action-env-from-an-aws-ssm-list/actions/workflows/codeql-analysis.yml)
+[![Release](https://img.shields.io/github/v/release/3nu3l/dotenv-from-aws-ssm?label=Release&logo=github)](https://github.com/3nu3l/dotenv-from-aws-ssm/releases/latest) 
+[![Tests](https://img.shields.io/github/actions/workflow/status/3nu3l/dotenv-from-aws-ssm/test.yml?label=Tests&logo=github)](https://github.com/3nu3l/dotenv-from-aws-ssm/actions/workflows/test.yml)
+[![CodeQL](https://img.shields.io/github/actions/workflow/status/3nu3l/dotenv-from-aws-ssm/codeql-analysis.yml?label=CodeQL&logo=github)](https://github.com/3nu3l/dotenv-from-aws-ssm/actions/workflows/codeql-analysis.yml)
 
 
 # Create a dotenv from aws parameter store list :rocket:
@@ -52,5 +52,5 @@ jobs:
           role-to-assume: arn:aws:iam::123456789100:role/my-github-actions-role
           aws-region: us-east-2
       
-      - uses: enuelx/env-from-an-aws-ssm-list@v1
+      - uses: enuelx/dotenv-from-aws-ssm@v1
 ```
