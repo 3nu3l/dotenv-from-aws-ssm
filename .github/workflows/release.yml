@@ -22,6 +22,4 @@ jobs:
       name: main
     steps:
       - name: Update the ${{ env.TAG_NAME }} tag
-        uses: actions/publish-action@v0.2.2
-        with:
-          source-tag: ${{ env.TAG_NAME }}
+        uses: nowactions/update-majorver@v1
