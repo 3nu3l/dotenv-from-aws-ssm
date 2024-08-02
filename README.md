@@ -52,5 +52,5 @@ jobs:
           role-to-assume: arn:aws:iam::123456789100:role/my-github-actions-role
           aws-region: us-east-2
       
-      - uses: enuelx/dotenv-from-aws-ssm@v1
+      - uses: 3nu3l/dotenv-from-aws-ssm@v1
 ```
