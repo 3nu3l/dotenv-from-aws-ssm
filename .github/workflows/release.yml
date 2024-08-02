@@ -22,4 +22,4 @@ jobs:
       name: main
     steps:
       - name: Update the ${{ env.TAG_NAME }} tag
-        uses: nowactions/update-majorver@v1
+        uses: sayyid5416/major-tags@v1
