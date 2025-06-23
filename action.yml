@@ -10,5 +10,5 @@ inputs:
   outputFilename:
     description: "Filename received as parameter or .env by default"
 runs:
-  using: "node16"
+  using: "node24"
   main: "dist/index.js"
