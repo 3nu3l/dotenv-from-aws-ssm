@@ -15,7 +15,6 @@
     "all": "npm run build && npm run format && npm run lint && npm run package && npm test"
   },
   "repository": {
-    "author": "Emmanuel Maidana",
     "type": "git",
     "url": "git@github.com:3nu3l/dotenv-from-aws-ssm.git"
   },
@@ -27,7 +26,7 @@
     "ssm",
     "dotenv"
   ],
-  "author": "",
+  "author": "Emmanuel Maidana",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.10.0",
